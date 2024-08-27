@@ -1,13 +1,27 @@
-<script setup>
-import FilmSection from "./components/FilmSection.vue";
-import TVSection from "./components/TVSection.vue";
-import AppMain from "./components/AppMain.vue";
-</script>
-
 <template>
-  <TVSection />
-  <FilmSection />
-  <AppMain />
+  <div>
+    <AppHeader @search="search" />
+    <main>
+      <FilmSection :searchQuery="searchQuery" />
+    </main>
+  </div>
 </template>
 
-<style scoped></style>
+<script>
+import AppHeader from "./components/AppHeader.vue";
+import FilmSection from "./components/FilmSection.vue";
+
+export default {
+  components: { AppHeader, FilmSection },
+  data() {
+    return {
+      searchQuery: "",
+    };
+  },
+  methods: {
+    search(searchQuery) {
+      this.searchQuery = searchQuery;
+    },
+  },
+};
+</script>
