@@ -2,7 +2,7 @@
   <div>
     <AppHeader @search="search" />
     <main>
-      <FilmSection :searchQuery="searchQuery" />
+      <MovieSection :searchQuery="searchQuery" />
       <TVSection :searchQuery="searchQuery" />
     </main>
   </div>
@@ -10,11 +10,11 @@
 
 <script>
 import AppHeader from "./components/AppHeader.vue";
-import FilmSection from "./components/FilmSection.vue";
+import MovieSection from "./components/MovieSection.vue";
 import TVSection from "./components/TVSection.vue";
 
 export default {
-  components: { AppHeader, FilmSection, TVSection },
+  components: { AppHeader, MovieSection, TVSection },
   data() {
     return {
       searchQuery: "",
