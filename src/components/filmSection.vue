@@ -7,6 +7,10 @@
         {{ movie.original_title }} <br />
         <span v-html="getFlagIcon(movie.original_language)"></span> <br />
         {{ movie.vote_average }}
+        <img
+          :src="`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`"
+          alt="Copertina del film"
+        />
       </li>
     </ul>
   </section>

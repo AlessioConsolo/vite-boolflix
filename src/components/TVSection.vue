@@ -7,6 +7,10 @@
         {{ tvShow.original_name }} <br />
         <span v-html="getFlagIcon(tvShow.original_language)"></span> <br />
         {{ tvShow.vote_average }}
+        <img
+          :src="`https://image.tmdb.org/t/p/w500${tvShow.backdrop_path}`"
+          alt="Copertina del film"
+        />
       </li>
     </ul>
   </section>
