@@ -5,7 +5,7 @@
       <li v-for="movie in movies" :key="movie.id">
         {{ movie.title }} <br />
         {{ movie.original_title }} <br />
-        {{ movie.original_language }} <br />
+        <span v-html="getFlagIcon(movie.original_language)"></span> <br />
         {{ movie.vote_average }}
       </li>
     </ul>
@@ -39,6 +39,15 @@ export default {
         .catch((error) => {
           console.error(error);
         });
+    },
+    getFlagIcon(nationalityCode) {
+      const validCodes = ["en", "fr", "es", "it", "de", "pt", "zh", "ja", "ko"];
+
+      if (validCodes.includes(nationalityCode.toLowerCase())) {
+        return `<span class="fi fi-${nationalityCode.toLowerCase()}"></span>`;
+      } else {
+        return "";
+      }
     },
   },
 };

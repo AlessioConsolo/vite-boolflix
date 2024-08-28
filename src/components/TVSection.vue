@@ -5,7 +5,7 @@
       <li v-for="tvShow in tvShows" :key="tvShow.id">
         {{ tvShow.name }} <br />
         {{ tvShow.original_name }} <br />
-        {{ tvShow.original_language }} <br />
+        <span v-html="getFlagIcon(tvShow.original_language)"></span> <br />
         {{ tvShow.vote_average }}
       </li>
     </ul>
@@ -39,6 +39,15 @@ export default {
         .catch((error) => {
           console.error(error);
         });
+    },
+    getFlagIcon(nationalityCode) {
+      const validCodes = ["en", "fr", "es", "it", "de", "pt", "zh", "ja", "ko"];
+
+      if (validCodes.includes(nationalityCode.toLowerCase())) {
+        return `<span class="fi fi-${nationalityCode.toLowerCase()}"></span>`;
+      } else {
+        return "";
+      }
     },
   },
 };
