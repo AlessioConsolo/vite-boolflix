@@ -6,11 +6,24 @@
         {{ tvShow.name }} <br />
         {{ tvShow.original_name }} <br />
         <span v-html="getFlagIcon(tvShow.original_language)"></span> <br />
-        {{ tvShow.vote_average }}
+        <div class="rating">
+          <i
+            v-for="n in getRating(tvShow.vote_average)"
+            :key="n"
+            class="fa-solid fa-star"
+          ></i>
+          <i
+            v-for="n in 5 - getRating(tvShow.vote_average)"
+            :key="n"
+            class="fa-regular fa-star"
+          ></i>
+        </div>
+        <br />
         <img
           :src="`https://image.tmdb.org/t/p/w500${tvShow.backdrop_path}`"
           alt="Copertina del film"
         />
+        <br />
       </li>
     </ul>
   </section>
@@ -52,6 +65,9 @@ export default {
       } else {
         return "";
       }
+    },
+    getRating(vote) {
+      return Math.ceil(vote / 2);
     },
   },
 };
