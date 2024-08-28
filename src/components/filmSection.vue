@@ -20,7 +20,7 @@
         </div>
         <br />
         <img
-          :src="`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`"
+          :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`"
           alt="Copertina del film"
         />
       </li>
